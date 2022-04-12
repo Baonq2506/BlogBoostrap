@@ -1,0 +1,28 @@
+<div class="dropdown" style="text-align: center;">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Item / Row : {{12/item}}
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li> <button type="button" class="btn btn-primary dropdown-item" (click)="selectedItemRow(6)">2</button></li>
+        <li selected> <button type="button" class="btn btn-primary dropdown-item" (click)="selectedItemRow(4)">3</button></li>
+        <li> <button type="button" class="btn btn-primary dropdown-item"  (click)="selectedItemRow(3)">4</button></li>
+        
+    </ul>
+</div>
+
+
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-{{item}}" *ngFor="let post of posts" style="margin:10px 0 10px 0;">
+            <div class="card" style="width: 18rem;">
+                <img src={{post.image}} class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <p class="card-text">{{post.content}}</p>
+                    <a routerLink="/detail/{{post.id}}" class="btn btn-primary">View</a>
+                </div>
+                <h5>Written by {{post.nameCreated}} <p>{{post.date | dateAsAgo}}</p></h5>
+            </div>
+    </div>
+</div>
